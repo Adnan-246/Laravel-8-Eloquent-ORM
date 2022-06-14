@@ -52,8 +52,37 @@
                 </span>
             @enderror
           </div>
+
           <div class="input-group mb-3">
-            <input type="email" class="form-control @error('name') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocusemail>
+            <input type="text" class="form-control @error('department') is-invalid @enderror" placeholder="Department" name="department" value="{{ old('department') }}" required autocomplete="department" autofocus>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+            @error('department')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control @error('position') is-invalid @enderror" placeholder="Position" name="position" value="{{ old('position') }}" required autocomplete="position" autofocus>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+            @error('position')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocusemail>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -65,6 +94,91 @@
                 </span>
             @enderror
           </div>
+
+          <div class="input-group mb-3">
+            <input type="tel" class="form-control @error('phone') is-invalid @enderror" placeholder="Phone" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+            @error('phone')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control @error('country') is-invalid @enderror" placeholder="Country" name="country" value="{{ old('country') }}" required autocomplete="country" autofocus>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+            @error('country')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control @error('state') is-invalid @enderror" placeholder="State" name="state" value="{{ old('state') }}" required autocomplete="state" autofocus>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+            @error('state')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control @error('city') is-invalid @enderror" placeholder="City" name="city" value="{{ old('city') }}" required autocomplete="city" autofocus>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+            @error('city')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control @error('zip_code') is-invalid @enderror" placeholder="Zip-Code" name="zip_code" value="{{ old('zip_code') }}" required autocomplete="zip_code" autofocus>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+            @error('zip_code')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control @error('address') is-invalid @enderror" placeholder="Zip-address" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+            @error('address')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+          </div>
+
           <div class="input-group mb-3">
             <input type="password" name="password" class="form-control  @error('password') is-invalid @enderror" placeholder="Password" required>
             <div class="input-group-append">
@@ -91,7 +205,8 @@
                 </span>
             @enderror
           </div>
-          <div class="row">
+
+          {{-- <div class="row">
             <div class="col-8">
               <div class="icheck-primary">
                 <input type="checkbox" id="agreeTerms" name="terms" value="agree">
@@ -99,7 +214,7 @@
                  I agree to the <a href="#">terms</a>
                 </label>
               </div>
-            </div>
+            </div> --}}
             <!-- /.col -->
             <div class="col-4">
               <button type="submit" class="btn btn-primary btn-block">Register</button>

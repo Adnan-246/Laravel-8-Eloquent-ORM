@@ -53,8 +53,16 @@ class RegisterController extends Controller
             'f_name' => ['required', 'string', 'max:255'],
             'l_name' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
+            'department' => ['required', 'string', 'max:255'],
+            'position' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:5', 'confirmed'],
+            'phone' => ['required', 'string',  'max:15', 'unique:users'],
+            'country' => ['required', 'string', 'max:30'],
+            'state' => ['required', 'string', 'max:30'],
+            'city' => ['required', 'string', 'max:30'],
+            'zip_code' => ['required', 'string', 'max:30'],
+            'address' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -70,8 +78,16 @@ class RegisterController extends Controller
             'f_name' => $data['f_name'],
             'l_name' => $data['l_name'],
             'name' => $data['name'],
+            'department' => $data['department'],
+            'position' => $data['position'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'phone' => $data['phone'],
+            'country' => $data['country'],
+            'state' => $data['state'],
+            'city' => $data['city'],
+            'zip_code' => $data['zip_code'],
+            'address' => $data['address'],
         ]);
     }
 }

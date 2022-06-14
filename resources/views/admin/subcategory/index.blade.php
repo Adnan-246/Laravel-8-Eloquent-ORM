@@ -8,12 +8,12 @@
      <div class="container-fluid">
        <div class="row mb-2">
          <div class="col-sm-6">
-           <h1>Category</h1>
+           <h1>SubCategory</h1>
          </div>
          <div class="col-sm-6">
            <ol class="breadcrumb float-sm-right">
              <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-             <li class="breadcrumb-item active">Category Table</li>
+             <li class="breadcrumb-item active">SubCategory Table</li>
            </ol>
          </div>
        </div>
@@ -27,7 +27,7 @@
          <div class="col-12">
             <div class="card">
                <div class="card-header">
-                 <h3 class="card-title">All Category</h3>
+                 <h3 class="card-title">All SubCategory</h3>
                </div>
                <!-- /.card-header -->
                <div class="card-body">
@@ -35,17 +35,19 @@
                    <thead>
                       <tr>
                         <td>Sl</td>
-                        <td>Name</td>
+                        <td>Category</td>
+                        <td>SubCategory</td>
                         <td>Slug</td>
                         <td>Action</td>
                      </tr>
                    </thead>
                    <tbody>
-                      @foreach ($category as $key => $row)
+                      @foreach ($data as $key => $row)
                           <tr>
                              <td>{{ ++$key }}</td>
-                             <td>{{ $row->category_name }}</td>
-                             <td>{{ $row->category_slug }}</td>
+                             <td>{{ $row->category->category_name }}</td>
+                             <td>{{ $row->subcategory_name }}</td>
+                             <td>{{ $row->subcategory_slug }}</td>
                              <td>
                                   <a href="{{ route('category.edit', $row->id) }}" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
                                   <a href="{{ route('category.delete',$row->id) }}" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i></a>
@@ -73,46 +75,3 @@
    </div>
 </section>
 @endsection
-
-
-{{-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('All Category') }}
-                    <a href="{{ route('home') }}" class="btn btn-sm btn-primary" style="float:right;">Back</a>
-                </div>
-
-                <div class="card-body">
-                    <a href="{{ route('category.create') }}" class="btn btn-info btn-sm">Add Category</a>
-                  <br><br>
-                    <table class="table table-responsive">
-                        <thead>
-                            <tr>
-                                <td>Sl</td>
-                                <td>Name</td>
-                                <td>Slug</td>
-                                <td>Action</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($category as $key => $row)
-                                <tr>
-                                    <td>{{ ++$key }}</td>
-                                    <td>{{ $row->category_name }}</td>
-                                    <td>{{ $row->category_slug }}</td>
-                                    <td>
-                                        <a href="{{ route('category.edit', $row->id) }}" class="btn btn-sm btn-info">Edit</a>
-                                        <a href="{{ route('category.delete',$row->id) }}" class="btn btn-sm btn-danger">Delete</a>
-                                    </td>
-                                </tr>
-
-                            @endforeach
-                        </tbody>
-
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}

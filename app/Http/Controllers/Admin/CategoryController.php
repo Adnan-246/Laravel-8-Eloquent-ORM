@@ -21,6 +21,7 @@ class CategoryController extends Controller
      return view('admin.category.index',compact('category'));
     }
 
+    //_-Create Method__//
     public function create()
     {
         return view('admin.category.create');
@@ -51,7 +52,8 @@ class CategoryController extends Controller
              'category_slug' => Str::of($request->category_name)->slug('-'),
          ]);
 
-         return redirect()->back();
+         $notification = array('message' => 'Category Inserted!', 'alert-type' => 'success');
+         return redirect()->back()->with($notification);
 
     }
 
@@ -77,7 +79,8 @@ class CategoryController extends Controller
             'category_name' => $request->category_name,
             'category_slug' => Str::of($request->category_name)->slug('-'),
         ]);
-        return redirect()->route('category.index');
+        $notification = array('message' => 'Successfully Updated!', 'alert-type' => 'success');
+        return redirect()->route('category.index')->with($notification);
     }
 
     //__Category delete method__//
@@ -92,6 +95,9 @@ class CategoryController extends Controller
 
         //__Using DestroyMethod__//
         Category::destroy($id);
-        return redirect()->back();
+
+        $notification = array('message' => 'Successfully Deleted!', 'alert-type' => 'success');
+        return redirect()->back()->with($notification);
+        // return redirect()->back();
     }
 }

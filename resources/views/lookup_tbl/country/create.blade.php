@@ -5,19 +5,19 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Add New Category') }} </div>
+                <div class="card-header">{{ __('Add New Country') }} </div>
                     {{-- <a href="{{ route('home') }}" class="btn btn-sm btn-primary" style="float:right;">Back</a> --}}
 
 
                 <div class="card-body">
-                    <a href="{{ route('category.index') }}" class="btn btn-info btn-sm">All Category</a>
+                    <a href="{{ route('country.index') }}" class="btn btn-info btn-sm">All Countries</a>
                   <br><br>
-                  <form method="post" action="{{ route('category.store') }}">
+                  <form method="post" action="{{ route('country.store') }}">
                       @csrf
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Category Name</label>
-                      <input type="text" class="form-control @error('category_name') is-invalid @enderror" name="category_name" value="{{ old('category_name') }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter category name" required>
-                        @error('category_name')
+                      <label for="exampleInputEmail1">Country Name</label>
+                      <input type="text" class="form-control @error('country_name') is-invalid @enderror" name="country_name" value="{{ old('country_name') }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter country name" required>
+                        @error('country_name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

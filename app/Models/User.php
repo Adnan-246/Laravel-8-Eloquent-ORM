@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable implements MustVerifyEmail 
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -18,11 +18,20 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
+         'image',
         'f_name',
         'l_name',
         'name',
+        'department',
+        'position',
         'email',
         'password',
+        'phone',
+        'country',
+        'state',
+        'city',
+        'zip_code',
+         'address',
     ];
 
     /**
