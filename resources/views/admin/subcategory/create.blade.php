@@ -5,9 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Add New SubCategory') }} </div>
+                <div class="card-header">
+                    {{-- {{ __('Add New SubCategory') }} --}}
+                    <h3 class="card-title">Add New SubCategory</h3>
                     {{-- <a href="{{ route('home') }}" class="btn btn-sm btn-primary" style="float:right;">Back</a> --}}
-
+                </div>
 
                 <div class="card-body">
                     {{-- <a href="{{ route('category.index') }}" class="btn btn-info btn-sm">All Category</a>

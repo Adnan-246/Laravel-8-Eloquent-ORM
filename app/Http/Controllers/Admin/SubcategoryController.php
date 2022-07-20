@@ -21,7 +21,7 @@ class SubcategoryController extends Controller
 
         //Using Model__//
         $data = Subcategory::all();
-        
+
         return view('admin.subcategory.index',compact('data'));
 
         // return response()->json($data);
@@ -45,7 +45,8 @@ class SubcategoryController extends Controller
          ]);
 
          //_ Save Method_//
-         // $category= new Category;
+         // $category= new Subcategory;
+         //
          // $category->category_name=$request->category_name;
          // $category->category_slug= Str::of($request->category_name)->slug('-');
          // $category->save();
@@ -65,5 +66,42 @@ class SubcategoryController extends Controller
 
     }
 
+    //__Delete Subcategory__//
+    public function destroy($id)
+    {
+
+        Subcategory::destroy($id);
+
+        $notification = array('message' => 'Sub-Category deleted!', 'alert-type' => 'success');
+        return redirect()->back()->with($notification);
+    }
+
+    //__edit__//
+    public function edit($id)
+    {
+        $categories = Category::all();
+        $data=Subcategory::find($id);
+        return view('admin.subcategory.edit',compact('categories','data'));
+    }
+
+    //__SAubcategory Update__//
+    public function update(Request $request,$id)
+    {
+        $subcategory=Subcategory::find($id); //get the record
+
+        // $subcategory->update([
+        //     'subcategory' => $request->category_id,
+        //     'subcategory_name' => $request->subcategory_name,
+        //     'subcategory_slug' => Str::of($request->subcategory_name)->slug('-'),
+        // ]);
+
+        $subcategory->category_id = $request->category_id;
+        $subcategory->subcategory_name = $request->subcategory_name;
+        $subcategory->subcategory_slug = $request->subcategory_name;
+        $subcategory->save();
+
+        $notification = array('message' => 'SubCategory Updated!', 'alert-type' => 'success');
+        return redirect()->route('subcategory.index')->with($notification);
+    }
 
 }

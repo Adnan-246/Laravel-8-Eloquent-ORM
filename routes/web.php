@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubcategoryController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ChangepassController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\lookup_tbl\CountryController;
@@ -62,6 +63,18 @@ Route::post('admin/profile/update/{id}', [App\Http\Controllers\Admin\ProfileCont
 Route::get('subcategory/index',[App\Http\Controllers\Admin\SubcategoryController::class, 'index'])->name('subcategory.index');
 Route::get('subcategory/create',[App\Http\Controllers\Admin\SubcategoryController::class, 'create'])->name('subcategory.create');
 Route::post('subcategory/store',[App\Http\Controllers\Admin\SubcategoryController::class, 'store'])->name('subcategory.store');
+Route::get('subcategory/delete/{id}',[App\Http\Controllers\Admin\SubcategoryController::class, 'destroy'])->name('subcategory.delete');
+Route::get('subcategory/edit/{id}',[App\Http\Controllers\Admin\SubcategoryController::class, 'edit'])->name('subcategory.edit');
+Route::post('subcategory/update/{id}',[App\Http\Controllers\Admin\SubcategoryController::class, 'update'])->name('subcategory.update');
+
+//__Post Routes_//
+Route::get('post/index',[App\Http\Controllers\Admin\PostController::class, 'index'])->name('post.index');
+Route::get('post/create',[App\Http\Controllers\Admin\PostController::class, 'create'])->name('post.create');
+Route::post('post/store',[App\Http\Controllers\Admin\PostController::class, 'store'])->name('post.store');
+Route::get('post/delete/{id}',[App\Http\Controllers\Admin\PostController::class, 'destroy'])->name('post.delete');
+Route::get('post/edit/{id}',[App\Http\Controllers\Admin\PostController::class, 'edit'])->name('post.edit');
+Route::post('post/update/{id}',[App\Http\Controllers\Admin\PostController::class, 'update'])->name('post.update');
+
 
 //__Country Routes__//
 Route::get('country/index',[App\Http\Controllers\lookup_tbl\CountryController::class, 'index'])->name('country.index');

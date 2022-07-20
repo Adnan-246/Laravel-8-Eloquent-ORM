@@ -9,14 +9,14 @@
   <!-- Sidebar -->
   <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      <div class="image">
-        <img src="{{asset('backend')}}/dist/img/avatar3.png" class="img-circle elevation-2" alt="User Image">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="{{asset('backend')}}/dist/img/avatar3.png" class="img-circle elevation-2" alt="User Image">
+          </div>
+            <div class="info">
+              <a href="{{ route('admin.profile') }}" class="d-block">{{ Auth::user()->f_name }}</a>
+            </div>
       </div>
-      <div class="info">
-        <a href="{{ route('admin.profile') }}" class="d-block">{{ Auth::user()->f_name }}</a>
-      </div>
-    </div>
 
 
 
@@ -87,6 +87,31 @@
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-copy"></i>
             <p>
+              Post
+              <i class="fas fa-angle-left right"></i>
+              <span class="badge badge-info right"></span>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{ route('post.create') }}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Create Post</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ route('post.index') }}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Manage Post</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
               Countries
               <i class="fas fa-angle-left right"></i>
               <span class="badge badge-info right"></span>
@@ -106,36 +131,9 @@
               </a>
             </li>
 
-          </ul>
-        </li>
+          {{-- </ul>
+        </li> --}}
 
-
-        <li class="nav-header">PROFILE</li>
-
-         {{-- <li class="nav-item">
-          <a href="{{ route('admin.profile') }}" class="nav-link">
-            <i class="fas fa-user" aria-hidden="true"></i>
-            {{-- <i class="fa fa-key" aria-hidden="true"></i> --}}
-            {{-- <p>View Profile</p>
-          </a>
-         </li>
-
-        <li class="nav-item">
-          <a href="{{ route('password.change') }}" class="nav-link">
-            <i class="fa fa-key" aria-hidden="true"></i>
-            <p>Password Change</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="{{ route('logout') }}" class="nav-link"  onclick="event.preventDefault();
-                         document.getElementById('logout-form').submit();">
-            <i class='fas fa-sign-out-alt'></i>
-            <p>Logout</p>
-          </a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-              @csrf
-          </form>
-        {{-- </li> --}}  
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

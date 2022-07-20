@@ -152,15 +152,6 @@
             <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">{{ Auth::user()->f_name }}</span>
             </a>
 
-          {{-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-              <div class="image">
-                <img src="{{asset('backend')}}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-              </div>
-              <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
-              </div>
-          </div> --}}
-
           <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
               <li>
                 <a href="{{ route('admin.profile') }}" class="dropdown-item">

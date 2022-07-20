@@ -8,12 +8,12 @@
      <div class="container-fluid">
        <div class="row mb-2">
          <div class="col-sm-6">
-           <h1>SubCategory</h1>
+           <h1>Manage Posts</h1>
          </div>
          <div class="col-sm-6">
            <ol class="breadcrumb float-sm-right">
              <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-             <li class="breadcrumb-item active">SubCategory Table</li>
+             <li class="breadcrumb-item active">Post Table</li>
            </ol>
          </div>
        </div>
@@ -27,8 +27,8 @@
          <div class="col-12">
             <div class="card">
                <div class="card-header">
-                 <h3 class="card-title">All SubCategory</h3>
-                 <a href="{{ route('subcategory.create') }}" class="btn btn-sm btn-primary" style="float:right;">Add SubCategory</a>
+                 <h3 class="card-title">All Post</h3>
+                 <a href="{{ route('post.create') }}" class="btn btn-sm btn-primary" style="float:right;">Add New Post</a>
                </div>
                <!-- /.card-header -->
                <div class="card-body">
@@ -38,20 +38,32 @@
                         <td>Sl</td>
                         <td>Category</td>
                         <td>SubCategory</td>
-                        <td>Slug</td>
+                        <td>Author</td>
+                        <td>Title</td>
+                        <td>Published</td>
+                        <td>Status</td>
                         <td>Action</td>
                      </tr>
                    </thead>
                    <tbody>
-                      @foreach ($data as $key => $row)
+                      @foreach ($posts as $key => $row)
                           <tr>
                              <td>{{ ++$key }}</td>
                              <td>{{ $row->category->category_name }}</td>
-                             <td>{{ $row->subcategory_name }}</td>
-                             <td>{{ $row->subcategory_slug }}</td>
+                             <td>{{ $row->subcategory->subcategory_name }}</td>
+                             <td>{{ $row->user->name }}</td>
+                             <td>{{ $row->title }}</td>
+                             <td>{{ date('d F, Y', strtotime($row->post_date)) }}</td>
                              <td>
-                                  <a href="{{ route('subcategory.edit', $row->id) }}" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                                  <a href="{{ route('subcategory.delete',$row->id) }}" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i></a>
+                                @if ($row->status==1)
+                                   <span class="badge badge-success">Active</span>
+                                @else
+                                   <span class="badge badge-danger">Inactive</span>
+                                @endif
+                             </td>
+                             <td>
+                                  <a href="{{ route('post.edit', $row->id) }}" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                                  <a href="{{ route('post.delete',$row->id) }}" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i></a>
                              </td>
                           </tr>
 

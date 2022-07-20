@@ -20,6 +20,12 @@ class Subcategory extends Model
 
     public function category()
     {
-        return $this->belongsTo(category::class, 'category_id'); //__category_id foreign key __//
+        return $this->belongsTo(Category::class, 'category_id'); //__category_id foreign key __//
+    }
+
+    //__Mutators__//
+    public function setSubcategoryNameAttribute($value)
+    {
+      $this->attributes['subcategory_name']=ucfirst($value);
     }
 }

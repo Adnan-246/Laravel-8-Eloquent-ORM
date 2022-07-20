@@ -20,6 +20,11 @@
   <!--Alert Message show -->
   <link rel="stylesheet" type="text/css" href="{{ asset('backend') }}/plugins/toastr/toastr.min.css">
   {{-- <link rel="stylesheet" type="text/css" href="{{ asset('backend') }}/plugins/sweetalert2/sweetalert2.min.css"> --}}
+  <!-- icheck bootstrap -->
+ <link rel="stylesheet" href="{{asset('backend')}}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+ <!-- summernote -->
+ <link rel="stylesheet" href="{{asset('backend')}}/plugins/summernote/summernote-bs4.min.css">
+
 </head>
 <body class="hold-transition light-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -92,6 +97,8 @@
 <script src="{{asset('backend')}}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="{{asset('backend')}}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="{{asset('backend')}}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- Summernote -->
+<script src="{{asset('backend')}}/plugins/summernote/summernote-bs4.min.js"></script>
 
  {{-- //__Alert Message show using toastr/sweetalert__// --}}
 <script type="text/javascript" src="{{ asset('backend') }}/plugins/toastr/toastr.min.js"></script>
@@ -156,5 +163,19 @@
     }
     @endif
   </script>
+
+  <script>
+  $(function () {
+    // Summernote
+    $('.summernote').summernote()
+
+    // // CodeMirror
+    // CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+    //   mode: "htmlmixed",
+    //   theme: "monokai"
+    // });
+  })
+</script>
+
 </body>
 </html>

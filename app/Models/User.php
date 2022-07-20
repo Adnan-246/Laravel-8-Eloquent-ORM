@@ -52,4 +52,10 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //__Accessors__//
+    public function getNameEmailAttribute()
+    {
+      return $this->name."-".$this->email;
+    }
 }

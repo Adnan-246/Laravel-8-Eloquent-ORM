@@ -37,20 +37,20 @@ class CategoryController extends Controller
 
          ]);
 
-         //_ Save Method_//
-         // $category= new Category;
-         // $category->category_name=$request->category_name;
-         // $category->category_slug= Str::of($request->category_name)->slug('-');
-         // $category->save();
+         // _ Save Method_//
+         $category= new Category;
+         $category->category_name=$request->category_name;
+         $category->category_slug= Str::of($request->category_name)->slug('-');
+         $category->save();
 
 
          //_Insert Method_//
          //_Here Category is the Model Name_//
 
-         Category::insert([
-             'category_name' => $request->category_name,
-             'category_slug' => Str::of($request->category_name)->slug('-'),
-         ]);
+         // Category::insert([
+         //     'category_name' => $request->category_name,
+         //     'category_slug' => Str::of($request->category_name)->slug('-'),
+         // ]);
 
          $notification = array('message' => 'Category Inserted!', 'alert-type' => 'success');
          return redirect()->back()->with($notification);

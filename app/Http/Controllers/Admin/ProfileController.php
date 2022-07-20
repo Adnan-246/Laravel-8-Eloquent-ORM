@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use DB;
 use Crypt;
 use Hash;
 use Auth;
@@ -22,7 +23,8 @@ class ProfileController extends Controller
    //__Edit Profile__
    public function edit($id)
    {
-      $data=User::find($id);
+      //$data=User::find($id);
+      $data=DB::table('users')->where('id',$id)->first();
 
       return view('admin.profile.edit',compact('data'));
    }
